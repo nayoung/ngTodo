@@ -1,0 +1,9 @@
+* 프로젝트 생성
+ng new ngTodo --style=scss
+만일 ng new ngTodo 으로만 이미 생성되었다면,
+ng set defaults.styleExt scss
+
+index > home, jquery, angular
+
+
+
