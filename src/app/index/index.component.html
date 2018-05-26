@@ -1,5 +1,7 @@
 <mat-toolbar color="primary" fxLayout="row" fxLayoutAlign="space-between center">
   <span>Angular</span>
+  <!--fxFlex = grow:비율 slink:브라우저resize시에 변경됨 width-->
+  <span fxFlex="1 1 auto"></span>
   <button mat-icon-button [matMenuTriggerFor]="menu">
     <mat-icon>menu</mat-icon>
   </button>
@@ -20,4 +22,7 @@
   </button>
 </mat-menu>
 
-<router-outlet></router-outlet>
+<div class="container">
+  <router-outlet></router-outlet>
+</div
+>
