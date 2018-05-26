@@ -1,0 +1,7 @@
+@mixin transform($type, $x, $y) {
+  -webkit-transform: $type + "(" + $x +"," + $y +")";
+  -moz-transform: $type + "(" + $x +"," + $y +")";
+  -ms-transform: $type + "(" + $x +"," + $y +")";
+  -o-transform: $type + "(" + $x +"," + $y +")";
+  transform: $type + "(" + $x +"," + $y +")";
+}
