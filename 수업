@@ -5,11 +5,16 @@ ng set defaults.styleExt scss
 
 index > home, jquery, angular
 
+npm install --save @angular/cdk @angular/material
 metToolbar install 후
 C:\mia\ngTodo\src\styles.css
 에 @import '~@angular/material/prebuilt-themes/deeppurple-amber.css'; 추가
 index.html style link 추가
 
-
+아이콘 찾기
 https://material.io/tools/icons/?style=baseline
 
+npm install --save @angular/flex-layout
+레이아웃 설치
+
+부모 - 자식

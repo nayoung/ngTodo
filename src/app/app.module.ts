@@ -8,14 +8,19 @@ import { JqueryComponent } from './jquery/jquery.component';
 import { AngularComponent } from './angular/angular.component';
 import {RouterModule, Routes} from '@angular/router';
 import {MatButtonModule, MatIconModule, MatMenuModule, MatToolbarModule} from '@angular/material';
+import {FlexLayoutModule} from '@angular/flex-layout';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
-const route: Routes = [
+
+const routes: Routes = [
   {path: '', component: IndexComponent, children: [
-      {path: '', component: HomeComponent},  // / 에 대해서 home이됨
-      // {path: 'home', component: HomeComponent},  // /home/
-      {path: 'jquery', component: JqueryComponent}, // /jquery/
-      {path: 'angular', component: AngularComponent} // /angular/
-      ]}
+      {path: '', component: HomeComponent},
+      {path: 'jquery', component: JqueryComponent},
+      {path: 'angular', component: AngularComponent},
+    ]},
+
+  // {path: 'admin', component: xxxx} 관리자 등 화면이 전혀 다른 사이트를 구현가능
+  // 참고: 향후 관리자 생성 모듈
   // { path: 'admin', loadChildren: 'app/admin/admin.module#AdminModule'}
 ];
 
@@ -29,7 +34,9 @@ const route: Routes = [
   ],
   imports: [
     BrowserModule,
-    RouterModule.forRoot(route),
+    RouterModule.forRoot(routes),
+    BrowserAnimationsModule,
+    FlexLayoutModule,
     MatToolbarModule,
     MatIconModule,
     MatMenuModule,
