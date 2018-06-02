@@ -6,11 +6,20 @@ import { IndexComponent } from './index/index.component';
 import { HomeComponent } from './home/home.component';
 import { JqueryComponent } from './jquery/jquery.component';
 import { AngularComponent } from './angular/angular.component';
-import {RouterModule, Routes} from '@angular/router';
-import {MatButtonModule, MatCardModule, MatIconModule, MatMenuModule, MatToolbarModule} from '@angular/material';
-import {FlexLayoutModule} from '@angular/flex-layout';
-import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-
+import {RouterModule, Routes} from "@angular/router";
+import {
+  MatButtonModule,
+  MatCardModule,
+  MatFormFieldModule,
+  MatIconModule,
+  MatInputModule,
+  MatMenuModule,
+  MatToolbarModule
+} from "@angular/material";
+import {FlexLayoutModule} from "@angular/flex-layout";
+import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
+import {HttpClientModule} from "@angular/common/http";
+import {FormsModule} from "@angular/forms";
 
 const routes: Routes = [
   {path: '', component: IndexComponent, children: [
@@ -34,14 +43,18 @@ const routes: Routes = [
   ],
   imports: [
     BrowserModule,
+    FormsModule,
     RouterModule.forRoot(routes),
     BrowserAnimationsModule,
+    HttpClientModule,
     FlexLayoutModule,
     MatToolbarModule,
     MatIconModule,
     MatMenuModule,
     MatButtonModule,
-    MatCardModule
+    MatCardModule,
+    MatFormFieldModule,
+    MatInputModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,10 +1,8 @@
 @import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
-//@import "mixin";
 
-// .css > .scss > _xxx.scss : _xxx는 .css파일을 만들지 말라!
 @import "variable";
-@import "material";
-
+@import "mixin";
+@import "material"; // 먼저 .css 찾고 그담에 .scss를 찾고 그담에 _xxx.scss를 찾는다.
 
 * {
   -webkit-box-sizing: border-box;
@@ -18,33 +16,9 @@ html, body {
   height: 100%;
   font-size: 14px;
 }
+
 @media screen and (max-width: 599px) {
   html, body {
-    font-size: 12px;
+    font-size: 10px;
   }
 }
-
-table {
-  background-color: transparent;
-  border-collapse: collapse;
-  border-spacing: 0;
-}
-.table {
-  margin: 0;
-  width: 100%;
-  max-width: 100%;
-  thead, tbody {
-    tr {
-      th, td {
-        padding: 8px;
-        line-height: 1.42857143;
-        vertical-align: top;
-        border-top: 1px solid #ddd;
-      }
-    }
-  }
-  thead {
-    background-color: #dddddd;
-  }
-}
-
