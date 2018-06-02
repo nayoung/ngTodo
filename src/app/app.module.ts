@@ -31,8 +31,8 @@ const routes: Routes = [
     ]},
 
   // {path: 'admin', component: xxxx} 관리자 등 화면이 전혀 다른 사이트를 구현가능
-  // 참고: 향후 관리자 생성 모듈
-  // { path: 'admin', loadChildren: 'app/admin/admin.module#AdminModule'}
+  // 참고: 향후 관리자 생성 모듈 // loadChildren 은 상대경로여야함
+   { path: 'admin', loadChildren: './admin/admin.module#AdminModule'}
 ];
 
 @NgModule({
