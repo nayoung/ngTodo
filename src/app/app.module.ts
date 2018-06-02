@@ -20,6 +20,7 @@ import {FlexLayoutModule} from "@angular/flex-layout";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import {HttpClientModule} from "@angular/common/http";
 import {FormsModule} from "@angular/forms";
+import { HighlightDirective } from './highlight.directive';
 
 const routes: Routes = [
   {path: '', component: IndexComponent, children: [
@@ -37,6 +38,7 @@ const routes: Routes = [
   declarations: [
     AppComponent,
     IndexComponent,
+    HighlightDirective,
     HomeComponent,
     JqueryComponent,
     AngularComponent
