@@ -10,7 +10,7 @@ import {
   MatExpansionModule, MatFormFieldModule,
   MatIconModule,
   MatInputModule,
-  MatMenuModule, MatPaginatorModule,
+  MatMenuModule, MatPaginatorModule, MatSnackBarModule,
   MatToolbarModule
 } from '@angular/material';
 import {FlexLayoutModule} from '@angular/flex-layout';
@@ -50,7 +50,8 @@ const routes: Routes = [
     MatExpansionModule,
     MatPaginatorModule,
     CKEditorModule,
-    MatDialogModule
+    MatDialogModule,
+    MatSnackBarModule
   ],
   declarations: [HomeComponent, NewsComponent, IndexComponent, ViewComponent, WriteComponent, ViewDialogComponent],
   entryComponents: [ViewDialogComponent]

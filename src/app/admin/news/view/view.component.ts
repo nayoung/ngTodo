@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
 import {AdminService} from '../../admin.service';
 import {NewsVO} from '../../../domain/News.vo';
-import {MatDialog} from '@angular/material';
+import {MatDialog, MatSnackBar} from '@angular/material';
 import {ViewDialogComponent} from './view-dialog/view-dialog.component';
 
 @Component({
@@ -13,7 +13,7 @@ import {ViewDialogComponent} from './view-dialog/view-dialog.component';
 export class ViewComponent implements OnInit {
   news: NewsVO;
   constructor(private router: Router, private route: ActivatedRoute, private adminService: AdminService,
-              private dialog: MatDialog) {}
+              private dialog: MatDialog, private snackBar: MatSnackBar) {}
 
   ngOnInit() {
     /* console.log('view init = ' + this.router.url);
@@ -45,7 +45,13 @@ export class ViewComponent implements OnInit {
           this.adminService.removeNews(this.news.news_id)
             .subscribe(body => {
               console.log(body);
-              this.router.navigate(['admin', 'news']);
+              if (body['result'] === 0) {
+                this.router.navigate(['admin', 'news']);
+                // 토스트 메시지 보이기
+                this.snackBar.open('삭제되었습니다.', null, {duration: 3000});
+              } else {
+                this.snackBar.open('삭제에 실패하였습니다.', null, {duration: 3000});
+              }
             });
         }
     });
