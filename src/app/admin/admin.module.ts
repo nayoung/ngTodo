@@ -17,11 +17,15 @@ import {FlexLayoutModule} from '@angular/flex-layout';
 import {HttpClientModule} from '@angular/common/http';
 
 import {FormsModule} from '@angular/forms';
+import { ViewComponent } from './news/view/view.component';
 
 const routes: Routes = [
   {path: '', component: IndexComponent, children: [
       {path: '', component: HomeComponent},
-      {path: 'news', component: NewsComponent}
+      {path: 'news', component: NewsComponent, children: [
+          {path: ':news_id', component: ViewComponent}  // news/1
+          //  {path: 'view/:news_id', component: ViewComponent} // news/view/1
+        ]}
     ]}
 ];
 
@@ -42,6 +46,6 @@ const routes: Routes = [
     MatExpansionModule,
     MatPaginatorModule
   ],
-  declarations: [HomeComponent, NewsComponent, IndexComponent]
+  declarations: [HomeComponent, NewsComponent, IndexComponent, ViewComponent]
 })
 export class AdminModule { }
