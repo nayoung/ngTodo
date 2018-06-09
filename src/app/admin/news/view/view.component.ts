@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
 import {AdminService} from '../../admin.service';
 import {NewsVO} from '../../../domain/News.vo';
+import {MatDialog} from '@angular/material';
+import {ViewDialogComponent} from './view-dialog/view-dialog.component';
 
 @Component({
   selector: 'app-view',
@@ -10,7 +12,8 @@ import {NewsVO} from '../../../domain/News.vo';
 })
 export class ViewComponent implements OnInit {
   news: NewsVO;
-  constructor(private roupter: Router, private route: ActivatedRoute, private adminService: AdminService) {}
+  constructor(private roupter: Router, private route: ActivatedRoute, private adminService: AdminService,
+              private dialog: MatDialog) {}
 
   ngOnInit() {
     /* console.log('view init = ' + this.router.url);
@@ -33,5 +36,8 @@ export class ViewComponent implements OnInit {
         // console.log(body);
         this.news = body;
       });
+  }
+  popupDelete() {
+    this.dialog.open(ViewDialogComponent, {data: {content: `${this.news.title}를 삭제하시겠습니까?`}});
   }
 }

@@ -28,6 +28,7 @@ export class AdminService {
     return this.http.post(this.Server + '/api/news', news, {headers: this.header});
   }
   imageUpload(formData: FormData) {
-    return this.http.post(this.Server + '/api/imageUpload', formData); //  보내는 데이터가 json이어야 3번째 파라메터를 적었는데 이미지 이기에 안적음
+    return this.http.post(this.Server + '/api/imageUpload', formData);
+    //  보내는 데이터가 json이어야 3번째 파라메터를 적었는데 이미지 이기에 안적음
   }
 }
