@@ -19,6 +19,7 @@ import {HttpClientModule} from '@angular/common/http';
 import {FormsModule} from '@angular/forms';
 import { ViewComponent } from './news/view/view.component';
 import { WriteComponent } from './news/write/write.component';
+import {CKEditorModule} from 'ng2-ckeditor';
 
 const routes: Routes = [
   {path: '', component: IndexComponent, children: [
@@ -46,7 +47,8 @@ const routes: Routes = [
     MatFormFieldModule,
     MatInputModule,
     MatExpansionModule,
-    MatPaginatorModule
+    MatPaginatorModule,
+    CKEditorModule
   ],
   declarations: [HomeComponent, NewsComponent, IndexComponent, ViewComponent, WriteComponent]
 })

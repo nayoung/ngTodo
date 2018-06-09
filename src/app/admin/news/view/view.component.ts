@@ -20,8 +20,8 @@ export class ViewComponent implements OnInit {
     * */
     this.route.params
       .subscribe(params => {
-          console.log(params);
-          console.log(params['news_id']);
+          // console.log(params);
+          // console.log(params['news_id']);
           const news_id = +params['news_id'];  // +는 스트링을 숫자로 변환시켜줌
           this.findOneNews(news_id);
       });
@@ -30,7 +30,7 @@ export class ViewComponent implements OnInit {
   findOneNews(news_id: number) {
     this.adminService.findOneNews(news_id)
       .subscribe(body => {
-        console.log(body);
+        // console.log(body);
         this.news = body;
       });
   }
