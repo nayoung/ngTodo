@@ -31,4 +31,7 @@ export class AdminService {
     return this.http.post(this.Server + '/api/imageUpload', formData);
     //  보내는 데이터가 json이어야 3번째 파라메터를 적었는데 이미지 이기에 안적음
   }
+  removeNews(news_id: number) {
+    return this.http.delete(this.Server + '/api/news?news_id=' + news_id);
+  }
 }

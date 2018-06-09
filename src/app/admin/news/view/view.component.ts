@@ -12,7 +12,7 @@ import {ViewDialogComponent} from './view-dialog/view-dialog.component';
 })
 export class ViewComponent implements OnInit {
   news: NewsVO;
-  constructor(private roupter: Router, private route: ActivatedRoute, private adminService: AdminService,
+  constructor(private router: Router, private route: ActivatedRoute, private adminService: AdminService,
               private dialog: MatDialog) {}
 
   ngOnInit() {
@@ -38,6 +38,16 @@ export class ViewComponent implements OnInit {
       });
   }
   popupDelete() {
-    this.dialog.open(ViewDialogComponent, {data: {content: `${this.news.title}를 삭제하시겠습니까?`}});
+    this.dialog.open(ViewDialogComponent, {data: {content: `${this.news.title}를 삭제하시겠습니까?`}})
+      .afterClosed().subscribe(data => {
+        console.log(data);
+        if (data) {
+          this.adminService.removeNews(this.news.news_id)
+            .subscribe(body => {
+              console.log(body);
+              this.router.navigate(['admin', 'news']);
+            });
+        }
+    });
   }
 }
