@@ -18,6 +18,7 @@ import {HttpClientModule} from '@angular/common/http';
 
 import {FormsModule} from '@angular/forms';
 import { ViewComponent } from './news/view/view.component';
+import { WriteComponent } from './news/write/write.component';
 
 const routes: Routes = [
   {path: '', component: IndexComponent, children: [
@@ -46,6 +47,6 @@ const routes: Routes = [
     MatExpansionModule,
     MatPaginatorModule
   ],
-  declarations: [HomeComponent, NewsComponent, IndexComponent, ViewComponent]
+  declarations: [HomeComponent, NewsComponent, IndexComponent, ViewComponent, WriteComponent]
 })
 export class AdminModule { }

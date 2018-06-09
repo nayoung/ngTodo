@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
+import {AdminService} from '../../admin.service';
+import {NewsVO} from '../../../domain/News.vo';
 
 @Component({
   selector: 'app-view',
@@ -7,8 +9,8 @@ import {ActivatedRoute, Router} from '@angular/router';
   styleUrls: ['./view.component.css']
 })
 export class ViewComponent implements OnInit {
-
-  constructor(private roupter: Router, private route: ActivatedRoute) { }
+  news: NewsVO;
+  constructor(private roupter: Router, private route: ActivatedRoute, private adminService: AdminService) {}
 
   ngOnInit() {
     /* console.log('view init = ' + this.router.url);
@@ -21,12 +23,15 @@ export class ViewComponent implements OnInit {
           console.log(params);
           console.log(params['news_id']);
           const news_id = +params['news_id'];  // +는 스트링을 숫자로 변환시켜줌
-          this.findNews(news_id);
-      }
-      );
+          this.findOneNews(news_id);
+      });
   }
 
-  findNews(news_id: number) {
-
+  findOneNews(news_id: number) {
+    this.adminService.findOneNews(news_id)
+      .subscribe(body => {
+        console.log(body);
+        this.news = body;
+      });
   }
 }
